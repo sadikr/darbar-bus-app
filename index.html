@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Bus Status </title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/4-col-portfolio.css" rel="stylesheet">
+    
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <!-- Page Content -->
+    <div class="container-fluid">
+        
+        <div class="row">
+            <h1 class="center-text"> Gate Number : 6 </h1>
+        </div>
+
+        <div class="row jumbotron gate6-rt-1">
+            <div class="col-md-8 ">
+                <h1>MHD - HAPPY HOME & FORTUNE</h1>
+            </div>
+            <div class="col-md-4 " >
+                <img src="img/red.GIF" alt="red" 
+                class="img-rounded" data-img="route-1">
+            </div>
+        </div>
+
+        <div class="row jumbotron gate6-rt-2">
+            <div class="col-md-8 ">
+                <h1>MHD - SNC GARDENS</h1>
+            </div>
+            <div class="col-md-4">
+                <img src="img/red.GIF" alt="red" 
+                class="img-rounded" data-img="route-2">
+            </div>            
+        </div>
+
+        <div class="row jumbotron gate6-rt-3">
+            <div class="col-md-8 ">
+                <h1>HYD - HOTEL UTARA</h1>
+            </div>
+            <div class="col-md-4">
+                <img src="img/red.GIF" alt="red" 
+                class="img-rounded" data-img="route-3">
+            </div>
+        </div>
+ 
+        <div class="row">
+            <div class="col-md-4">
+                <label>Blue</label>
+                <button class="btn btn-primary status-btn" data-route="route-1" >Available</button>
+            </div>
+            <div class="col-md-4">
+                <label>Red</label>
+                <button class="btn btn-primary status-btn" data-route="route-2" >Available</button>
+            </div>
+            <div class="col-md-4">
+                <label>Pink</label>
+                <button class="btn btn-primary status-btn" data-route="route-3" >Available</button>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <script>
+
+        $(document).ready(function() {
+            /* text constants */
+            var AVAILABLE = 'Available';
+            var UNAVAILABLE = 'Not Available';
+
+            var RED_SIGN = 'img/red.GIF';
+            var GREEN_SIGN = 'img/green.GIF';
+
+            $('.status-btn').on('click', function() {
+                var route = $(this).data('route');
+                var status = $(this).text();
+
+                var signImageElement = $('[data-img='+route+']');
+
+                signImageElement.attr('src', (status === AVAILABLE) ? GREEN_SIGN : RED_SIGN );
+
+                $(this).text((status === AVAILABLE) ? UNAVAILABLE : AVAILABLE); 
+            });
+           
+        });
+    </script>
+
+</body>
+
+</html>
